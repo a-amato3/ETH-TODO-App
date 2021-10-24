@@ -52,6 +52,47 @@
       "signature": "constructor"
     },
     {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "content",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "completed",
+          "type": "bool"
+        }
+      ],
+      "name": "TaskCreated",
+      "type": "event",
+      "signature": "0x05d0fb833127fc08168556d0e7ca9554fc3f6bc843b3b7d2bf1c35aea6bab660"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "completed",
+          "type": "bool"
+        }
+      ],
+      "name": "TaskCompleted",
+      "type": "event",
+      "signature": "0xe21fa966ca5cd02748c0752352d18c48165e61cb55b4c29cccf924b5a95fcff1"
+    },
+    {
       "constant": false,
       "inputs": [
         {
@@ -67,35 +108,32 @@
       "signature": "0x111002aa"
     }
   ],
-  "bytecode": "0x60806040526000805534801561001457600080fd5b5060408051808201909152601081527f537475647920426c6f636b636861696e00000000000000000000000000000000602082015261005b90640100000000610060810204565b610167565b60008054600190810180835560408051606081018252828152602080820187815282840187905293865284815291909420845181559151805192936100ad939085019291909101906100cc565b50604091909101516002909101805460ff191691151591909117905550565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061010d57805160ff191683800117855561013a565b8280016001018555821561013a579182015b8281111561013a57825182559160200191906001019061011f565b5061014692915061014a565b5090565b61016491905b808211156101465760008155600101610150565b90565b6103d3806101766000396000f3fe6080604052600436106100565763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663111002aa811461005b5780638d97767214610110578063b6cb58a5146101c4575b600080fd5b34801561006757600080fd5b5061010e6004803603602081101561007e57600080fd5b81019060208101813564010000000081111561009957600080fd5b8201836020820111156100ab57600080fd5b803590602001918460018302840111640100000000831117156100cd57600080fd5b91908080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152509295506101eb945050505050565b005b34801561011c57600080fd5b5061013a6004803603602081101561013357600080fd5b5035610257565b604051808481526020018060200183151515158152602001828103825284818151815260200191508051906020019080838360005b8381101561018757818101518382015260200161016f565b50505050905090810190601f1680156101b45780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b3480156101d057600080fd5b506101d9610306565b60408051918252519081900360200190f35b60008054600190810180835560408051606081018252828152602080820187815282840187905293865284815291909420845181559151805192936102389390850192919091019061030c565b50604091909101516002909101805460ff191691151591909117905550565b600160208181526000928352604092839020805481840180548651600296821615610100026000190190911695909504601f810185900485028601850190965285855290949193929091908301828280156102f35780601f106102c8576101008083540402835291602001916102f3565b820191906000526020600020905b8154815290600101906020018083116102d657829003601f168201915b5050506002909301549192505060ff1683565b60005481565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061034d57805160ff191683800117855561037a565b8280016001018555821561037a579182015b8281111561037a57825182559160200191906001019061035f565b5061038692915061038a565b5090565b6103a491905b808211156103865760008155600101610390565b9056fea165627a7a72305820823454b3194050ad1bd1bcca2c648da3b508c91b90354e0389bfdfc0ca7b1d780029",
-  "deployedBytecode": "0x6080604052600436106100565763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663111002aa811461005b5780638d97767214610110578063b6cb58a5146101c4575b600080fd5b34801561006757600080fd5b5061010e6004803603602081101561007e57600080fd5b81019060208101813564010000000081111561009957600080fd5b8201836020820111156100ab57600080fd5b803590602001918460018302840111640100000000831117156100cd57600080fd5b91908080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152509295506101eb945050505050565b005b34801561011c57600080fd5b5061013a6004803603602081101561013357600080fd5b5035610257565b604051808481526020018060200183151515158152602001828103825284818151815260200191508051906020019080838360005b8381101561018757818101518382015260200161016f565b50505050905090810190601f1680156101b45780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b3480156101d057600080fd5b506101d9610306565b60408051918252519081900360200190f35b60008054600190810180835560408051606081018252828152602080820187815282840187905293865284815291909420845181559151805192936102389390850192919091019061030c565b50604091909101516002909101805460ff191691151591909117905550565b600160208181526000928352604092839020805481840180548651600296821615610100026000190190911695909504601f810185900485028601850190965285855290949193929091908301828280156102f35780601f106102c8576101008083540402835291602001916102f3565b820191906000526020600020905b8154815290600101906020018083116102d657829003601f168201915b5050506002909301549192505060ff1683565b60005481565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061034d57805160ff191683800117855561037a565b8280016001018555821561037a579182015b8281111561037a57825182559160200191906001019061035f565b5061038692915061038a565b5090565b6103a491905b808211156103865760008155600101610390565b9056fea165627a7a72305820823454b3194050ad1bd1bcca2c648da3b508c91b90354e0389bfdfc0ca7b1d780029",
-  "sourceMap": "66:412:1:-;;;117:1;90:28;;262:68;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;293:30:1;;;;;;;;;;;;;;;;;;;:10;;;;:30;:::i;:::-;66:412;;336:140;397:9;:11;;;;;;;;;437:32;;;;;;;;;;;;;;;;;;;;;;;;418:16;;;;;;;;;;:51;;;;;;;;:16;;:51;;;;;;;;;;;;:::i;:::-;-1:-1:-1;418:51:1;;;;;;;;;;;;-1:-1:-1;;418:51:1;;;;;;;;;;-1:-1:-1;336:140:1:o;66:412::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;66:412:1;;;-1:-1:-1;66:412:1;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
-  "deployedSourceMap": "66:412:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;336:140;;8:9:-1;5:2;;;30:1;27;20:12;5:2;336:140:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;336:140:1;;;;;;;;21:11:-1;5:28;;2:2;;;46:1;43;36:12;2:2;336:140:1;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;336:140:1;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;336:140:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;81:16;;74:27;;;;-1:-1;336:140:1;;-1:-1:-1;336:140:1;;-1:-1:-1;;;;;336:140:1;;;218:37;;8:9:-1;5:2;;;30:1;27;20:12;5:2;218:37:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;218:37:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;218:37:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;90:28;;8:9:-1;5:2;;;30:1;27;20:12;5:2;90:28:1;;;;;;;;;;;;;;;;;;;;336:140;397:9;:11;;;;;;;;;437:32;;;;;;;;;;;;;;;;;;;;;;;;418:16;;;;;;;;;;:51;;;;;;;;:16;;:51;;;;;;;;;;;;:::i;:::-;-1:-1:-1;418:51:1;;;;;;;;;;;;-1:-1:-1;;418:51:1;;;;;;;;;;-1:-1:-1;336:140:1:o;218:37::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;218:37:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;218:37:1;;;;;;;-1:-1:-1;;218:37:1;;;:::o;90:28::-;;;;:::o;66:412::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;66:412:1;;;-1:-1:-1;66:412:1;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ncontract TodoList {\n    uint256 public taskCount = 0;\n\n    struct Task {\n        uint256 id;\n        string content;\n        bool completed;\n    }\n\n    mapping(uint256 => Task) public tasks;\n\n    constructor() public {\n        createTask(\"Study Blockchain\");\n    }\n\n    function createTask(string memory _content) public {\n        taskCount++;\n        tasks[taskCount] = Task(taskCount, _content, false);\n    }\n}\n",
+  "bytecode": "0x60806040526000805534801561001457600080fd5b5060408051808201909152601c81527f436865636b206f75742064617070756e69766572736974792e636f6d00000000602082015261005b90640100000000610060810204565b61021f565b60008054600190810180835560408051606081018252828152602080820187815282840187905293865284815291909420845181559151805192936100ad93908501929190910190610184565b5060408201518160020160006101000a81548160ff0219169083151502179055509050507f05d0fb833127fc08168556d0e7ca9554fc3f6bc843b3b7d2bf1c35aea6bab660600054826000604051808481526020018060200183151515158152602001828103825284818151815260200191508051906020019080838360005b8381101561014557818101518382015260200161012d565b50505050905090810190601f1680156101725780820380516001836020036101000a031916815260200191505b5094505050505060405180910390a150565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106101c557805160ff19168380011785556101f2565b828001600101855582156101f2579182015b828111156101f25782518255916020019190600101906101d7565b506101fe929150610202565b5090565b61021c91905b808211156101fe5760008155600101610208565b90565b61048b8061022e6000396000f3fe6080604052600436106100565763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663111002aa811461005b5780638d97767214610110578063b6cb58a5146101c4575b600080fd5b34801561006757600080fd5b5061010e6004803603602081101561007e57600080fd5b81019060208101813564010000000081111561009957600080fd5b8201836020820111156100ab57600080fd5b803590602001918460018302840111640100000000831117156100cd57600080fd5b91908080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152509295506101eb945050505050565b005b34801561011c57600080fd5b5061013a6004803603602081101561013357600080fd5b503561030f565b604051808481526020018060200183151515158152602001828103825284818151815260200191508051906020019080838360005b8381101561018757818101518382015260200161016f565b50505050905090810190601f1680156101b45780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b3480156101d057600080fd5b506101d96103be565b60408051918252519081900360200190f35b6000805460019081018083556040805160608101825282815260208082018781528284018790529386528481529190942084518155915180519293610238939085019291909101906103c4565b5060408201518160020160006101000a81548160ff0219169083151502179055509050507f05d0fb833127fc08168556d0e7ca9554fc3f6bc843b3b7d2bf1c35aea6bab660600054826000604051808481526020018060200183151515158152602001828103825284818151815260200191508051906020019080838360005b838110156102d05781810151838201526020016102b8565b50505050905090810190601f1680156102fd5780820380516001836020036101000a031916815260200191505b5094505050505060405180910390a150565b600160208181526000928352604092839020805481840180548651600296821615610100026000190190911695909504601f810185900485028601850190965285855290949193929091908301828280156103ab5780601f10610380576101008083540402835291602001916103ab565b820191906000526020600020905b81548152906001019060200180831161038e57829003601f168201915b5050506002909301549192505060ff1683565b60005481565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061040557805160ff1916838001178555610432565b82800160010185558215610432579182015b82811115610432578251825591602001919060010190610417565b5061043e929150610442565b5090565b61045c91905b8082111561043e5760008155600101610448565b9056fea165627a7a723058200ff292d06e4cb166c813335354acfab201004650cf98e84b85bbd7f32040ef1a0029",
+  "deployedBytecode": "0x6080604052600436106100565763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663111002aa811461005b5780638d97767214610110578063b6cb58a5146101c4575b600080fd5b34801561006757600080fd5b5061010e6004803603602081101561007e57600080fd5b81019060208101813564010000000081111561009957600080fd5b8201836020820111156100ab57600080fd5b803590602001918460018302840111640100000000831117156100cd57600080fd5b91908080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152509295506101eb945050505050565b005b34801561011c57600080fd5b5061013a6004803603602081101561013357600080fd5b503561030f565b604051808481526020018060200183151515158152602001828103825284818151815260200191508051906020019080838360005b8381101561018757818101518382015260200161016f565b50505050905090810190601f1680156101b45780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b3480156101d057600080fd5b506101d96103be565b60408051918252519081900360200190f35b6000805460019081018083556040805160608101825282815260208082018781528284018790529386528481529190942084518155915180519293610238939085019291909101906103c4565b5060408201518160020160006101000a81548160ff0219169083151502179055509050507f05d0fb833127fc08168556d0e7ca9554fc3f6bc843b3b7d2bf1c35aea6bab660600054826000604051808481526020018060200183151515158152602001828103825284818151815260200191508051906020019080838360005b838110156102d05781810151838201526020016102b8565b50505050905090810190601f1680156102fd5780820380516001836020036101000a031916815260200191505b5094505050505060405180910390a150565b600160208181526000928352604092839020805481840180548651600296821615610100026000190190911695909504601f810185900485028601850190965285855290949193929091908301828280156103ab5780601f10610380576101008083540402835291602001916103ab565b820191906000526020600020905b81548152906001019060200180831161038e57829003601f168201915b5050506002909301549192505060ff1683565b60005481565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061040557805160ff1916838001178555610432565b82800160010185558215610432579182015b82811115610432578251825591602001919060010190610417565b5061043e929150610442565b5090565b61045c91905b8082111561043e5760008155600101610448565b9056fea165627a7a723058200ff292d06e4cb166c813335354acfab201004650cf98e84b85bbd7f32040ef1a0029",
+  "sourceMap": "25:600:1:-;;;76:1;49:28;;343:80;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;374:42:1;;;;;;;;;;;;;;;;;;;:10;;;;:42;:::i;:::-;25:600;;429:194;490:9;:11;;;;;;;;;530:32;;;;;;;;;;;;;;;;;;;;;;;;511:16;;;;;;;;;;:51;;;;;;;;:16;;:51;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;577:39;589:9;;600:8;610:5;577:39;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;577:39:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;429:194;:::o;25:600::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;25:600:1;;;-1:-1:-1;25:600:1;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "25:600:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;429:194;;8:9:-1;5:2;;;30:1;27;20:12;5:2;429:194:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;429:194:1;;;;;;;;21:11:-1;5:28;;2:2;;;46:1;43;36:12;2:2;429:194:1;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;429:194:1;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;429:194:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;81:16;;74:27;;;;-1:-1;429:194:1;;-1:-1:-1;429:194:1;;-1:-1:-1;;;;;429:194:1;;;177:37;;8:9:-1;5:2;;;30:1;27;20:12;5:2;177:37:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;177:37:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;177:37:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;49:28;;8:9:-1;5:2;;;30:1;27;20:12;5:2;49:28:1;;;;;;;;;;;;;;;;;;;;429:194;490:9;:11;;;;;;;;;530:32;;;;;;;;;;;;;;;;;;;;;;;;511:16;;;;;;;;;;:51;;;;;;;;:16;;:51;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;577:39;589:9;;600:8;610:5;577:39;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;577:39:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;429:194;:::o;177:37::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;177:37:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;177:37:1;;;;;;;-1:-1:-1;;177:37:1;;;:::o;49:28::-;;;;:::o;25:600::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;25:600:1;;;-1:-1:-1;25:600:1;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.5.0;\n\ncontract TodoList {\n    uint256 public taskCount = 0;\n\n    struct Task {\n        uint256 id;\n        string content;\n        bool completed;\n    }\n\n    mapping(uint256 => Task) public tasks;\n\n    event TaskCreated(uint256 id, string content, bool completed);\n\n    event TaskCompleted(uint256 id, bool completed);\n\n    constructor() public {\n        createTask(\"Check out dappuniversity.com\");\n    }\n\n    function createTask(string memory _content) public {\n        taskCount++;\n        tasks[taskCount] = Task(taskCount, _content, false);\n        emit TaskCreated(taskCount, _content, false);\n    }\n}\n",
   "sourcePath": "/Users/aaronamato/dev/blockchain/etd-todo-dapp/contracts/TodoList.sol",
   "ast": {
     "absolutePath": "/Users/aaronamato/dev/blockchain/etd-todo-dapp/contracts/TodoList.sol",
     "exportedSymbols": {
       "TodoList": [
-        76
+        120
       ]
     },
-    "id": 77,
+    "id": 121,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 34,
+        "id": 58,
         "literals": [
           "solidity",
-          ">=",
-          "0.4",
-          ".22",
-          "<",
-          "0.9",
+          "^",
+          "0.5",
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:32:1"
+        "src": "0:23:1"
       },
       {
         "baseContracts": [],
@@ -103,20 +141,20 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 76,
+        "id": 120,
         "linearizedBaseContracts": [
-          76
+          120
         ],
         "name": "TodoList",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 37,
+            "id": 61,
             "name": "taskCount",
             "nodeType": "VariableDeclaration",
-            "scope": 76,
-            "src": "90:28:1",
+            "scope": 120,
+            "src": "49:28:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -124,10 +162,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 35,
+              "id": 59,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "90:7:1",
+              "src": "49:7:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -136,14 +174,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "30",
-              "id": 36,
+              "id": 60,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "117:1:1",
+              "src": "76:1:1",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_rational_0_by_1",
@@ -155,15 +193,15 @@
           },
           {
             "canonicalName": "TodoList.Task",
-            "id": 44,
+            "id": 68,
             "members": [
               {
                 "constant": false,
-                "id": 39,
+                "id": 63,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
-                "scope": 44,
-                "src": "147:10:1",
+                "scope": 68,
+                "src": "106:10:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -171,10 +209,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 38,
+                  "id": 62,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "147:7:1",
+                  "src": "106:7:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -185,11 +223,11 @@
               },
               {
                 "constant": false,
-                "id": 41,
+                "id": 65,
                 "name": "content",
                 "nodeType": "VariableDeclaration",
-                "scope": 44,
-                "src": "167:14:1",
+                "scope": 68,
+                "src": "126:14:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -197,10 +235,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 40,
+                  "id": 64,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "167:6:1",
+                  "src": "126:6:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -211,11 +249,11 @@
               },
               {
                 "constant": false,
-                "id": 43,
+                "id": 67,
                 "name": "completed",
                 "nodeType": "VariableDeclaration",
-                "scope": 44,
-                "src": "191:14:1",
+                "scope": 68,
+                "src": "150:14:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -223,10 +261,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 42,
+                  "id": 66,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "191:4:1",
+                  "src": "150:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -238,50 +276,50 @@
             ],
             "name": "Task",
             "nodeType": "StructDefinition",
-            "scope": 76,
-            "src": "125:87:1",
+            "scope": 120,
+            "src": "84:87:1",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 48,
+            "id": 72,
             "name": "tasks",
             "nodeType": "VariableDeclaration",
-            "scope": 76,
-            "src": "218:37:1",
+            "scope": 120,
+            "src": "177:37:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Task_$44_storage_$",
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Task_$68_storage_$",
               "typeString": "mapping(uint256 => struct TodoList.Task)"
             },
             "typeName": {
-              "id": 47,
+              "id": 71,
               "keyType": {
-                "id": 45,
+                "id": 69,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "226:7:1",
+                "src": "185:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "218:24:1",
+              "src": "177:24:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Task_$44_storage_$",
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Task_$68_storage_$",
                 "typeString": "mapping(uint256 => struct TodoList.Task)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 46,
+                "id": 70,
                 "name": "Task",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 44,
-                "src": "237:4:1",
+                "referencedDeclaration": 68,
+                "src": "196:4:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Task_$44_storage_ptr",
+                  "typeIdentifier": "t_struct$_Task_$68_storage_ptr",
                   "typeString": "struct TodoList.Task"
                 }
               }
@@ -290,10 +328,175 @@
             "visibility": "public"
           },
           {
+            "anonymous": false,
+            "documentation": null,
+            "id": 80,
+            "name": "TaskCreated",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 79,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 74,
+                  "indexed": false,
+                  "name": "id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 80,
+                  "src": "239:10:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 73,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "239:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 76,
+                  "indexed": false,
+                  "name": "content",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 80,
+                  "src": "251:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 75,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "251:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 78,
+                  "indexed": false,
+                  "name": "completed",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 80,
+                  "src": "267:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 77,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "267:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "238:44:1"
+            },
+            "src": "221:62:1"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 86,
+            "name": "TaskCompleted",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 85,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 82,
+                  "indexed": false,
+                  "name": "id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 86,
+                  "src": "309:10:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 81,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "309:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 84,
+                  "indexed": false,
+                  "name": "completed",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 86,
+                  "src": "321:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 83,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "321:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "308:28:1"
+            },
+            "src": "289:48:1"
+          },
+          {
             "body": {
-              "id": 55,
+              "id": 93,
               "nodeType": "Block",
-              "src": "283:47:1",
+              "src": "364:59:1",
               "statements": [
                 {
                   "expression": {
@@ -301,42 +504,42 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "hexValue": "537475647920426c6f636b636861696e",
-                        "id": 52,
+                        "hexValue": "436865636b206f75742064617070756e69766572736974792e636f6d",
+                        "id": 90,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "304:18:1",
+                        "src": "385:30:1",
                         "subdenomination": null,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_stringliteral_71d99d5984d215f218d55f76cbd92f44b6fe7b2f5c6de9016e6bc0a8341e9315",
-                          "typeString": "literal_string \"Study Blockchain\""
+                          "typeIdentifier": "t_stringliteral_6bf21434db4ae32d8b6f41fe5650c70c650f4c73d044c30519aadae0093e93e7",
+                          "typeString": "literal_string \"Check out dappuniversity.com\""
                         },
-                        "value": "Study Blockchain"
+                        "value": "Check out dappuniversity.com"
                       }
                     ],
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_stringliteral_71d99d5984d215f218d55f76cbd92f44b6fe7b2f5c6de9016e6bc0a8341e9315",
-                          "typeString": "literal_string \"Study Blockchain\""
+                          "typeIdentifier": "t_stringliteral_6bf21434db4ae32d8b6f41fe5650c70c650f4c73d044c30519aadae0093e93e7",
+                          "typeString": "literal_string \"Check out dappuniversity.com\""
                         }
                       ],
-                      "id": 51,
+                      "id": 89,
                       "name": "createTask",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 75,
-                      "src": "293:10:1",
+                      "referencedDeclaration": 119,
+                      "src": "374:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (string memory)"
                       }
                     },
-                    "id": 53,
+                    "id": 91,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -344,53 +547,53 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "293:30:1",
+                    "src": "374:42:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 54,
+                  "id": 92,
                   "nodeType": "ExpressionStatement",
-                  "src": "293:30:1"
+                  "src": "374:42:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 56,
+            "id": 94,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 49,
+              "id": 87,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "273:2:1"
+              "src": "354:2:1"
             },
             "returnParameters": {
-              "id": 50,
+              "id": 88,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "283:0:1"
+              "src": "364:0:1"
             },
-            "scope": 76,
-            "src": "262:68:1",
+            "scope": 120,
+            "src": "343:80:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 74,
+              "id": 118,
               "nodeType": "Block",
-              "src": "387:89:1",
+              "src": "480:143:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 62,
+                    "id": 100,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -398,15 +601,15 @@
                     "nodeType": "UnaryOperation",
                     "operator": "++",
                     "prefix": false,
-                    "src": "397:11:1",
+                    "src": "490:11:1",
                     "subExpression": {
                       "argumentTypes": null,
-                      "id": 61,
+                      "id": 99,
                       "name": "taskCount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 37,
-                      "src": "397:9:1",
+                      "referencedDeclaration": 61,
+                      "src": "490:9:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -417,14 +620,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 63,
+                  "id": 101,
                   "nodeType": "ExpressionStatement",
-                  "src": "397:11:1"
+                  "src": "490:11:1"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 72,
+                    "id": 110,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -433,26 +636,26 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 64,
+                        "id": 102,
                         "name": "tasks",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 48,
-                        "src": "418:5:1",
+                        "referencedDeclaration": 72,
+                        "src": "511:5:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Task_$44_storage_$",
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Task_$68_storage_$",
                           "typeString": "mapping(uint256 => struct TodoList.Task storage ref)"
                         }
                       },
-                      "id": 66,
+                      "id": 104,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 65,
+                        "id": 103,
                         "name": "taskCount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 37,
-                        "src": "424:9:1",
+                        "referencedDeclaration": 61,
+                        "src": "517:9:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -463,9 +666,9 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "418:16:1",
+                      "src": "511:16:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Task_$44_storage",
+                        "typeIdentifier": "t_struct$_Task_$68_storage",
                         "typeString": "struct TodoList.Task storage ref"
                       }
                     },
@@ -476,12 +679,12 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 68,
+                          "id": 106,
                           "name": "taskCount",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 37,
-                          "src": "442:9:1",
+                          "referencedDeclaration": 61,
+                          "src": "535:9:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -489,12 +692,12 @@
                         },
                         {
                           "argumentTypes": null,
-                          "id": 69,
+                          "id": 107,
                           "name": "_content",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 58,
-                          "src": "453:8:1",
+                          "referencedDeclaration": 96,
+                          "src": "546:8:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
                             "typeString": "string memory"
@@ -503,14 +706,14 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "66616c7365",
-                          "id": 70,
+                          "id": 108,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "bool",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "463:5:1",
+                          "src": "556:5:1",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
@@ -534,18 +737,18 @@
                             "typeString": "bool"
                           }
                         ],
-                        "id": 67,
+                        "id": 105,
                         "name": "Task",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 44,
-                        "src": "437:4:1",
+                        "referencedDeclaration": 68,
+                        "src": "530:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Task_$44_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_Task_$68_storage_ptr_$",
                           "typeString": "type(struct TodoList.Task storage pointer)"
                         }
                       },
-                      "id": 71,
+                      "id": 109,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -553,42 +756,135 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "437:32:1",
+                      "src": "530:32:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Task_$44_memory",
+                        "typeIdentifier": "t_struct$_Task_$68_memory",
                         "typeString": "struct TodoList.Task memory"
                       }
                     },
-                    "src": "418:51:1",
+                    "src": "511:51:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Task_$44_storage",
+                      "typeIdentifier": "t_struct$_Task_$68_storage",
                       "typeString": "struct TodoList.Task storage ref"
                     }
                   },
-                  "id": 73,
+                  "id": 111,
                   "nodeType": "ExpressionStatement",
-                  "src": "418:51:1"
+                  "src": "511:51:1"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 113,
+                        "name": "taskCount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 61,
+                        "src": "589:9:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 114,
+                        "name": "_content",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 96,
+                        "src": "600:8:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "66616c7365",
+                        "id": 115,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "bool",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "610:5:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "value": "false"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 112,
+                      "name": "TaskCreated",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 80,
+                      "src": "577:11:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_string_memory_ptr_$_t_bool_$returns$__$",
+                        "typeString": "function (uint256,string memory,bool)"
+                      }
+                    },
+                    "id": 116,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "577:39:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 117,
+                  "nodeType": "EmitStatement",
+                  "src": "572:44:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 75,
+            "id": 119,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createTask",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 59,
+              "id": 97,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 58,
+                  "id": 96,
                   "name": "_content",
                   "nodeType": "VariableDeclaration",
-                  "scope": 75,
-                  "src": "356:22:1",
+                  "scope": 119,
+                  "src": "449:22:1",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -596,10 +892,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 57,
+                    "id": 95,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "356:6:1",
+                    "src": "449:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -609,50 +905,47 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "355:24:1"
+              "src": "448:24:1"
             },
             "returnParameters": {
-              "id": 60,
+              "id": 98,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "387:0:1"
+              "src": "480:0:1"
             },
-            "scope": 76,
-            "src": "336:140:1",
+            "scope": 120,
+            "src": "429:194:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 77,
-        "src": "66:412:1"
+        "scope": 121,
+        "src": "25:600:1"
       }
     ],
-    "src": "32:447:1"
+    "src": "0:626:1"
   },
   "legacyAST": {
     "absolutePath": "/Users/aaronamato/dev/blockchain/etd-todo-dapp/contracts/TodoList.sol",
     "exportedSymbols": {
       "TodoList": [
-        76
+        120
       ]
     },
-    "id": 77,
+    "id": 121,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 34,
+        "id": 58,
         "literals": [
           "solidity",
-          ">=",
-          "0.4",
-          ".22",
-          "<",
-          "0.9",
+          "^",
+          "0.5",
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:32:1"
+        "src": "0:23:1"
       },
       {
         "baseContracts": [],
@@ -660,20 +953,20 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 76,
+        "id": 120,
         "linearizedBaseContracts": [
-          76
+          120
         ],
         "name": "TodoList",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 37,
+            "id": 61,
             "name": "taskCount",
             "nodeType": "VariableDeclaration",
-            "scope": 76,
-            "src": "90:28:1",
+            "scope": 120,
+            "src": "49:28:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -681,10 +974,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 35,
+              "id": 59,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "90:7:1",
+              "src": "49:7:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -693,14 +986,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "30",
-              "id": 36,
+              "id": 60,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "117:1:1",
+              "src": "76:1:1",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_rational_0_by_1",
@@ -712,15 +1005,15 @@
           },
           {
             "canonicalName": "TodoList.Task",
-            "id": 44,
+            "id": 68,
             "members": [
               {
                 "constant": false,
-                "id": 39,
+                "id": 63,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
-                "scope": 44,
-                "src": "147:10:1",
+                "scope": 68,
+                "src": "106:10:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -728,10 +1021,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 38,
+                  "id": 62,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "147:7:1",
+                  "src": "106:7:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -742,11 +1035,11 @@
               },
               {
                 "constant": false,
-                "id": 41,
+                "id": 65,
                 "name": "content",
                 "nodeType": "VariableDeclaration",
-                "scope": 44,
-                "src": "167:14:1",
+                "scope": 68,
+                "src": "126:14:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -754,10 +1047,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 40,
+                  "id": 64,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "167:6:1",
+                  "src": "126:6:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -768,11 +1061,11 @@
               },
               {
                 "constant": false,
-                "id": 43,
+                "id": 67,
                 "name": "completed",
                 "nodeType": "VariableDeclaration",
-                "scope": 44,
-                "src": "191:14:1",
+                "scope": 68,
+                "src": "150:14:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -780,10 +1073,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 42,
+                  "id": 66,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "191:4:1",
+                  "src": "150:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -795,50 +1088,50 @@
             ],
             "name": "Task",
             "nodeType": "StructDefinition",
-            "scope": 76,
-            "src": "125:87:1",
+            "scope": 120,
+            "src": "84:87:1",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 48,
+            "id": 72,
             "name": "tasks",
             "nodeType": "VariableDeclaration",
-            "scope": 76,
-            "src": "218:37:1",
+            "scope": 120,
+            "src": "177:37:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Task_$44_storage_$",
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Task_$68_storage_$",
               "typeString": "mapping(uint256 => struct TodoList.Task)"
             },
             "typeName": {
-              "id": 47,
+              "id": 71,
               "keyType": {
-                "id": 45,
+                "id": 69,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "226:7:1",
+                "src": "185:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "218:24:1",
+              "src": "177:24:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Task_$44_storage_$",
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Task_$68_storage_$",
                 "typeString": "mapping(uint256 => struct TodoList.Task)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 46,
+                "id": 70,
                 "name": "Task",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 44,
-                "src": "237:4:1",
+                "referencedDeclaration": 68,
+                "src": "196:4:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Task_$44_storage_ptr",
+                  "typeIdentifier": "t_struct$_Task_$68_storage_ptr",
                   "typeString": "struct TodoList.Task"
                 }
               }
@@ -847,10 +1140,175 @@
             "visibility": "public"
           },
           {
+            "anonymous": false,
+            "documentation": null,
+            "id": 80,
+            "name": "TaskCreated",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 79,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 74,
+                  "indexed": false,
+                  "name": "id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 80,
+                  "src": "239:10:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 73,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "239:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 76,
+                  "indexed": false,
+                  "name": "content",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 80,
+                  "src": "251:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 75,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "251:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 78,
+                  "indexed": false,
+                  "name": "completed",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 80,
+                  "src": "267:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 77,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "267:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "238:44:1"
+            },
+            "src": "221:62:1"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 86,
+            "name": "TaskCompleted",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 85,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 82,
+                  "indexed": false,
+                  "name": "id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 86,
+                  "src": "309:10:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 81,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "309:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 84,
+                  "indexed": false,
+                  "name": "completed",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 86,
+                  "src": "321:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 83,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "321:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "308:28:1"
+            },
+            "src": "289:48:1"
+          },
+          {
             "body": {
-              "id": 55,
+              "id": 93,
               "nodeType": "Block",
-              "src": "283:47:1",
+              "src": "364:59:1",
               "statements": [
                 {
                   "expression": {
@@ -858,42 +1316,42 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "hexValue": "537475647920426c6f636b636861696e",
-                        "id": 52,
+                        "hexValue": "436865636b206f75742064617070756e69766572736974792e636f6d",
+                        "id": 90,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "304:18:1",
+                        "src": "385:30:1",
                         "subdenomination": null,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_stringliteral_71d99d5984d215f218d55f76cbd92f44b6fe7b2f5c6de9016e6bc0a8341e9315",
-                          "typeString": "literal_string \"Study Blockchain\""
+                          "typeIdentifier": "t_stringliteral_6bf21434db4ae32d8b6f41fe5650c70c650f4c73d044c30519aadae0093e93e7",
+                          "typeString": "literal_string \"Check out dappuniversity.com\""
                         },
-                        "value": "Study Blockchain"
+                        "value": "Check out dappuniversity.com"
                       }
                     ],
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_stringliteral_71d99d5984d215f218d55f76cbd92f44b6fe7b2f5c6de9016e6bc0a8341e9315",
-                          "typeString": "literal_string \"Study Blockchain\""
+                          "typeIdentifier": "t_stringliteral_6bf21434db4ae32d8b6f41fe5650c70c650f4c73d044c30519aadae0093e93e7",
+                          "typeString": "literal_string \"Check out dappuniversity.com\""
                         }
                       ],
-                      "id": 51,
+                      "id": 89,
                       "name": "createTask",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 75,
-                      "src": "293:10:1",
+                      "referencedDeclaration": 119,
+                      "src": "374:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (string memory)"
                       }
                     },
-                    "id": 53,
+                    "id": 91,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -901,53 +1359,53 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "293:30:1",
+                    "src": "374:42:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 54,
+                  "id": 92,
                   "nodeType": "ExpressionStatement",
-                  "src": "293:30:1"
+                  "src": "374:42:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 56,
+            "id": 94,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 49,
+              "id": 87,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "273:2:1"
+              "src": "354:2:1"
             },
             "returnParameters": {
-              "id": 50,
+              "id": 88,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "283:0:1"
+              "src": "364:0:1"
             },
-            "scope": 76,
-            "src": "262:68:1",
+            "scope": 120,
+            "src": "343:80:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 74,
+              "id": 118,
               "nodeType": "Block",
-              "src": "387:89:1",
+              "src": "480:143:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 62,
+                    "id": 100,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -955,15 +1413,15 @@
                     "nodeType": "UnaryOperation",
                     "operator": "++",
                     "prefix": false,
-                    "src": "397:11:1",
+                    "src": "490:11:1",
                     "subExpression": {
                       "argumentTypes": null,
-                      "id": 61,
+                      "id": 99,
                       "name": "taskCount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 37,
-                      "src": "397:9:1",
+                      "referencedDeclaration": 61,
+                      "src": "490:9:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -974,14 +1432,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 63,
+                  "id": 101,
                   "nodeType": "ExpressionStatement",
-                  "src": "397:11:1"
+                  "src": "490:11:1"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 72,
+                    "id": 110,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -990,26 +1448,26 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 64,
+                        "id": 102,
                         "name": "tasks",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 48,
-                        "src": "418:5:1",
+                        "referencedDeclaration": 72,
+                        "src": "511:5:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Task_$44_storage_$",
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Task_$68_storage_$",
                           "typeString": "mapping(uint256 => struct TodoList.Task storage ref)"
                         }
                       },
-                      "id": 66,
+                      "id": 104,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 65,
+                        "id": 103,
                         "name": "taskCount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 37,
-                        "src": "424:9:1",
+                        "referencedDeclaration": 61,
+                        "src": "517:9:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1020,9 +1478,9 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "418:16:1",
+                      "src": "511:16:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Task_$44_storage",
+                        "typeIdentifier": "t_struct$_Task_$68_storage",
                         "typeString": "struct TodoList.Task storage ref"
                       }
                     },
@@ -1033,12 +1491,12 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 68,
+                          "id": 106,
                           "name": "taskCount",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 37,
-                          "src": "442:9:1",
+                          "referencedDeclaration": 61,
+                          "src": "535:9:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -1046,12 +1504,12 @@
                         },
                         {
                           "argumentTypes": null,
-                          "id": 69,
+                          "id": 107,
                           "name": "_content",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 58,
-                          "src": "453:8:1",
+                          "referencedDeclaration": 96,
+                          "src": "546:8:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
                             "typeString": "string memory"
@@ -1060,14 +1518,14 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "66616c7365",
-                          "id": 70,
+                          "id": 108,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "bool",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "463:5:1",
+                          "src": "556:5:1",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
@@ -1091,18 +1549,18 @@
                             "typeString": "bool"
                           }
                         ],
-                        "id": 67,
+                        "id": 105,
                         "name": "Task",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 44,
-                        "src": "437:4:1",
+                        "referencedDeclaration": 68,
+                        "src": "530:4:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Task_$44_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_Task_$68_storage_ptr_$",
                           "typeString": "type(struct TodoList.Task storage pointer)"
                         }
                       },
-                      "id": 71,
+                      "id": 109,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1110,42 +1568,135 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "437:32:1",
+                      "src": "530:32:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Task_$44_memory",
+                        "typeIdentifier": "t_struct$_Task_$68_memory",
                         "typeString": "struct TodoList.Task memory"
                       }
                     },
-                    "src": "418:51:1",
+                    "src": "511:51:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Task_$44_storage",
+                      "typeIdentifier": "t_struct$_Task_$68_storage",
                       "typeString": "struct TodoList.Task storage ref"
                     }
                   },
-                  "id": 73,
+                  "id": 111,
                   "nodeType": "ExpressionStatement",
-                  "src": "418:51:1"
+                  "src": "511:51:1"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 113,
+                        "name": "taskCount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 61,
+                        "src": "589:9:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 114,
+                        "name": "_content",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 96,
+                        "src": "600:8:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "66616c7365",
+                        "id": 115,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "bool",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "610:5:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "value": "false"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 112,
+                      "name": "TaskCreated",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 80,
+                      "src": "577:11:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_string_memory_ptr_$_t_bool_$returns$__$",
+                        "typeString": "function (uint256,string memory,bool)"
+                      }
+                    },
+                    "id": 116,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "577:39:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 117,
+                  "nodeType": "EmitStatement",
+                  "src": "572:44:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 75,
+            "id": 119,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createTask",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 59,
+              "id": 97,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 58,
+                  "id": 96,
                   "name": "_content",
                   "nodeType": "VariableDeclaration",
-                  "scope": 75,
-                  "src": "356:22:1",
+                  "scope": 119,
+                  "src": "449:22:1",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1153,10 +1704,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 57,
+                    "id": 95,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "356:6:1",
+                    "src": "449:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1166,26 +1717,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "355:24:1"
+              "src": "448:24:1"
             },
             "returnParameters": {
-              "id": 60,
+              "id": 98,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "387:0:1"
+              "src": "480:0:1"
             },
-            "scope": 76,
-            "src": "336:140:1",
+            "scope": 120,
+            "src": "429:194:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 77,
-        "src": "66:412:1"
+        "scope": 121,
+        "src": "25:600:1"
       }
     ],
-    "src": "32:447:1"
+    "src": "0:626:1"
   },
   "compiler": {
     "name": "solc",
@@ -1193,14 +1744,56 @@
   },
   "networks": {
     "5777": {
-      "events": {},
+      "events": {
+        "0x05d0fb833127fc08168556d0e7ca9554fc3f6bc843b3b7d2bf1c35aea6bab660": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "content",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "completed",
+              "type": "bool"
+            }
+          ],
+          "name": "TaskCreated",
+          "type": "event",
+          "signature": "0x05d0fb833127fc08168556d0e7ca9554fc3f6bc843b3b7d2bf1c35aea6bab660"
+        },
+        "0xe21fa966ca5cd02748c0752352d18c48165e61cb55b4c29cccf924b5a95fcff1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "completed",
+              "type": "bool"
+            }
+          ],
+          "name": "TaskCompleted",
+          "type": "event",
+          "signature": "0xe21fa966ca5cd02748c0752352d18c48165e61cb55b4c29cccf924b5a95fcff1"
+        }
+      },
       "links": {},
-      "address": "0xF78C231F78312c2f94b91b4bA58a33Acdaf9D6f1",
-      "transactionHash": "0x4dcb952d869af8114d747fc2f2ba8ce61ca6191b0cf0a02aee5b083a1508ccf9"
+      "address": "0x03e0A90025856Ff2D546f573E5860974166902c0",
+      "transactionHash": "0x6cdef96afcdf5c7936695ad288c7945e076928577cab26dc37571562ca814114"
     }
   },
   "schemaVersion": "3.0.1",
-  "updatedAt": "2021-10-24T08:11:59.860Z",
+  "updatedAt": "2021-10-24T18:51:12.739Z",
   "devdoc": {
     "methods": {}
   },
